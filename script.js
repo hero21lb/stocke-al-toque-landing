@@ -1,65 +1,74 @@
-/* =========================================================
-   STOCKE AL TOQUE — script.js
-   ========================================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- NAVBAR: sombra/blur al hacer scroll ---------- */
+  /* Navbar scroll effect */
   const navbar = document.getElementById('navbar');
-  const onScroll = () => {
-    if (window.scrollY > 12) {
+  let ticking = false;
+
+  const updateNavbar = () => {
+    if (window.scrollY > 10) {
       navbar.classList.add('is-scrolled');
     } else {
       navbar.classList.remove('is-scrolled');
     }
+    ticking = false;
   };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---------- MENÚ HAMBURGUESA MÓVIL ---------- */
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateNavbar();
+
+  /* Mobile burger menu */
   const burgerBtn = document.getElementById('burgerBtn');
   const navMenu = document.getElementById('navMenu');
 
-  const closeMenu = () => {
-    navMenu.classList.remove('is-open');
-    burgerBtn.classList.remove('is-active');
-    burgerBtn.setAttribute('aria-expanded', 'false');
-  };
-
-  burgerBtn.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('is-open');
+  const toggleMenu = (forceState) => {
+    const isOpen = forceState !== undefined ? forceState : !navMenu.classList.contains('is-open');
+    navMenu.classList.toggle('is-open', isOpen);
     burgerBtn.classList.toggle('is-active', isOpen);
     burgerBtn.setAttribute('aria-expanded', String(isOpen));
-  });
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+
+  burgerBtn.addEventListener('click', () => toggleMenu());
 
   navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', () => toggleMenu(false));
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Escape') toggleMenu(false);
   });
 
-  /* ---------- SCROLL REVEAL ---------- */
+  /* Scroll reveal with IntersectionObserver */
   const revealEls = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const delay = entry.target.getAttribute('data-reveal-delay') || 0;
-          setTimeout(() => entry.target.classList.add('is-visible'), Number(delay));
-          io.unobserve(entry.target);
+          const delay = Number(entry.target.getAttribute('data-reveal-delay')) || 0;
+          setTimeout(() => {
+            entry.target.classList.add('is-visible');
+          }, delay);
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
 
-    revealEls.forEach((el) => io.observe(el));
+    revealEls.forEach((el) => observer.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* ---------- ACORDEÓN FAQ ---------- */
+  /* Accordion FAQ */
   const accordionItems = document.querySelectorAll('.accordion__item');
 
   accordionItems.forEach((item) => {
@@ -69,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
 
-      // Cierra los demás
       accordionItems.forEach((other) => {
         if (other !== item) {
           other.classList.remove('is-open');
@@ -90,29 +98,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- CONTADORES ANIMADOS (ticket del hero) ---------- */
-  const counters = document.querySelectorAll('.js-counter');
+  /* Animated counters */
+  const counters = document.querySelectorAll('.counter');
 
   const animateCounter = (el) => {
     const target = Number(el.getAttribute('data-target')) || 0;
     const prefix = el.getAttribute('data-prefix') || '';
-    const duration = 1400;
-    const start = performance.now();
+    const duration = 1200;
+    const startTime = performance.now();
 
-    const step = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      const value = Math.floor(eased * target);
-      el.textContent = prefix + value.toLocaleString('es-AR');
+    const update = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+
+      el.textContent = prefix + current.toLocaleString('es-AR');
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        requestAnimationFrame(update);
       } else {
         el.textContent = prefix + target.toLocaleString('es-AR');
       }
     };
 
-    requestAnimationFrame(step);
+    requestAnimationFrame(update);
   };
 
   if (counters.length && 'IntersectionObserver' in window) {
@@ -123,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
           counterObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.5 });
 
     counters.forEach((el) => counterObserver.observe(el));
   } else {
@@ -134,21 +144,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- SMOOTH SCROLL CON OFFSET DE NAVBAR ---------- */
+  /* Smooth scroll with navbar offset */
   const navHeight = navbar.offsetHeight;
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId.length <= 1) return;
+      const href = anchor.getAttribute('href');
+      if (href === '#' || href.length <= 1) return;
 
-      const targetEl = document.querySelector(targetId);
-      if (!targetEl) return;
+      const target = document.querySelector(href);
+      if (!target) return;
 
       e.preventDefault();
-      const top = targetEl.getBoundingClientRect().top + window.scrollY - navHeight + 1;
+      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+  /* Progressive section appearance */
+  if ('IntersectionObserver' in window) {
+    const sections = document.querySelectorAll('.section, .hero, .cta-final');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    sections.forEach((section) => {
+      if (!section.classList.contains('reveal')) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      }
+      sectionObserver.observe(section);
+    });
+  }
 
 });

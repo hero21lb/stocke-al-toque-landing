@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stocke al Toque — Gestioná tu negocio sin cuadernos ni planillas</title>
+<meta name="description" content="Stocke al Toque: control de stock, fiados, proveedores y vencimientos para almacenes, kioscos, verdulerías y dietéticas. Desde el celu o la compu.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="#inicio" class="navbar__brand">
+      <img src="assets/logo.png" alt="Stocke al Toque" class="navbar__logo">
+      <span class="navbar__name">Stocke <em>al Toque</em></span>
+    </a>
+
+    <nav class="navbar__nav" id="navMenu">
+      <a href="#solucion" class="navbar__link">Solución</a>
+      <a href="#funcionalidades" class="navbar__link">Funciones</a>
+      <a href="#como-funciona" class="navbar__link">Cómo funciona</a>
+      <a href="#planes" class="navbar__link">Planes</a>
+      <a href="#preguntas" class="navbar__link">Preguntas</a>
+      <a href="#cta-final" class="navbar__cta btn btn--primary btn--sm">Probar gratis</a>
+    </nav>
+
+    <button class="navbar__burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="hero__scanline" aria-hidden="true"></div>
+  <div class="container hero__grid">
+    <div class="hero__copy reveal">
+      <p class="eyebrow"><span class="eyebrow__dot"></span> Hecho para el comercio de barrio argentino</p>
+      <h1 class="hero__title">
+        Gestioná tu negocio<br>
+        <span class="text-green">sin cuadernos</span> ni planillas.
+      </h1>
+      <p class="hero__subtitle">
+        Controlá stock, fiados, proveedores y vencimientos desde cualquier dispositivo. Lo cargás una vez y Stocke hace cuentas por vos.
+      </p>
+      <div class="hero__actions">
+        <a href="#cta-final" class="btn btn--primary btn--lg">Empezar gratis hoy</a>
+        <a href="#capturas" class="btn btn--ghost btn--lg">Ver el sistema</a>
+      </div>
+      <div class="hero__trust">
+        <div class="hero__trust-avatars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p>+1.200 comercios ya dejaron el cuaderno.</p>
+      </div>
+    </div>
+
+    <div class="hero__visual reveal" data-reveal-delay="150">
+      <div class="ticket-card">
+        <div class="ticket-card__head">
+          <span class="ticket-card__dot"></span>
+          <span class="ticket-card__dot"></span>
+          <span class="ticket-card__dot"></span>
+          <span class="ticket-card__title">Stocke — Panel</span>
+        </div>
+        <div class="ticket-card__body">
+          <div class="ticket-row">
+            <span>Stock total</span>
+            <strong class="js-counter" data-target="3482">0</strong>
+          </div>
+          <div class="ticket-row">
+            <span>Productos por vencer</span>
+            <strong class="text-amber">7</strong>
+          </div>
+          <div class="ticket-row">
+            <span>Fiados activos</span>
+            <strong class="js-counter" data-target="128">0</strong>
+          </div>
+          <div class="barcode" aria-hidden="true"></div>
+          <div class="ticket-row ticket-row--total">
+            <span>Ventas de hoy</span>
+            <strong class="text-green js-counter" data-target="54230" data-prefix="$">0</strong>
+          </div>
+        </div>
+      </div>
+      <div class="float-chip float-chip--1">✓ Stock actualizado</div>
+      <div class="float-chip float-chip--2">Vencimiento en 3 días ⚠</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMA ===== -->
+<section class="section problema" id="problema">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">El problema de siempre</p>
+      <h2 class="section__title">Tu negocio crece, pero el cuaderno no da más.</h2>
+    </div>
+
+    <div class="problema__grid">
+      <article class="problem-card reveal">
+        <span class="problem-card__icon">📒</span>
+        <h3>El cuaderno de fiados se pierde</h3>
+        <p>Páginas tachadas, letra que nadie entiende y clientes que "ya pagaron" sin que quede registro.</p>
+      </article>
+      <article class="problem-card reveal" data-reveal-delay="100">
+        <span class="problem-card__icon">📉</span>
+        <h3>No sabés qué tenés en góndola</h3>
+        <p>Comprás de más, te quedás sin lo que se vende y el stock real nunca coincide con el de la cabeza.</p>
+      </article>
+      <article class="problem-card reveal" data-reveal-delay="200">
+        <span class="problem-card__icon">⏰</span>
+        <h3>Productos vencidos sin avisar</h3>
+        <p>Te enterás del vencimiento cuando el cliente te lo devuelve en el mostrador.</p>
+      </article>
+      <article class="problem-card reveal" data-reveal-delay="300">
+        <span class="problem-card__icon">📋</span>
+        <h3>Planillas de Excel imposibles</h3>
+        <p>Una planilla por mes, fórmulas rotas y nadie más que vos sabe cómo se usa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUCIÓN ===== -->
+<section class="section solucion" id="solucion">
+  <div class="container solucion__grid">
+    <div class="solucion__visual reveal">
+      <img src="assets/dashboard.png" alt="Panel de control de Stocke al Toque mostrando stock, ventas y alertas" class="solucion__img" loading="lazy">
+      <div class="solucion__badge">Todo en un solo lugar</div>
+    </div>
+    <div class="solucion__copy reveal" data-reveal-delay="150">
+      <p class="eyebrow">La solución</p>
+      <h2 class="section__title">Un sistema pensado para el mostrador, no para la oficina.</h2>
+      <p class="solucion__text">
+        Stocke al Toque reemplaza el cuaderno, la planilla y la calculadora por una sola pantalla simple. Escaneás un código de barras, cargás un fiado o revisás un vencimiento en segundos, sin vueltas.
+      </p>
+      <ul class="check-list">
+        <li><span class="check-list__icon">✓</span> Cargá productos en segundos con el lector de código de barras.</li>
+        <li><span class="check-list__icon">✓</span> Llevá los fiados al día sin perder ni un peso.</li>
+        <li><span class="check-list__icon">✓</span> Recibí alertas antes de que algo se venza.</li>
+        <li><span class="check-list__icon">✓</span> Accedé desde el celu, la tablet o la compu del local.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FUNCIONALIDADES ===== -->
+<section class="section funcionalidades" id="funcionalidades">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Todo lo que necesitás</p>
+      <h2 class="section__title">Una herramienta, todas las tareas del día a día.</h2>
+      <p class="section__subtitle">Sin instalar nada raro. Sin curso de capacitación. Andá directo a vender.</p>
+    </div>
+
+    <div class="features-grid">
+      <article class="feature-card reveal">
+        <div class="feature-card__icon">📦</div>
+        <h3>Gestión de inventario</h3>
+        <p>Cargá, editá y organizá tus productos por categoría, precio y proveedor.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="60">
+        <div class="feature-card__icon">📊</div>
+        <h3>Control de stock</h3>
+        <p>Sabé en tiempo real cuánto tenés de cada producto, sin contar a mano.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="120">
+        <div class="feature-card__icon">🔖</div>
+        <h3>Códigos de barras</h3>
+        <p>Escaneá con el celu o un lector y cargá ventas en un toque.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="180">
+        <div class="feature-card__icon">⏳</div>
+        <h3>Lotes y vencimientos</h3>
+        <p>Alertas automáticas antes de que un producto se venza en la góndola.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-card__icon">🤝</div>
+        <h3>Fiados y cuentas corrientes</h3>
+        <p>Registrá quién te debe, cuánto y desde cuándo, sin cuaderno de por medio.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="60">
+        <div class="feature-card__icon">🚚</div>
+        <h3>Gestión de proveedores</h3>
+        <p>Tené a mano contactos, condiciones de pago y pedidos pendientes.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="120">
+        <div class="feature-card__icon">🧾</div>
+        <h3>Pedidos</h3>
+        <p>Armá pedidos a proveedores en base a lo que se está por agotar.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="180">
+        <div class="feature-card__icon">☁️</div>
+        <h3>Respaldos automáticos</h3>
+        <p>Tu información se guarda sola. Si se rompe el celu, no perdés nada.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-card__icon">👥</div>
+        <h3>Multiusuario</h3>
+        <p>Sumá a tu empleado o familiar con su propio acceso y permisos.</p>
+      </article>
+      <article class="feature-card reveal" data-reveal-delay="60">
+        <div class="feature-card__icon">📱</div>
+        <h3>Celular y computadora</h3>
+        <p>Empezás en el mostrador con el celu y seguís en la compu de casa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFICIOS ===== -->
+<section class="section beneficios" id="beneficios">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Por qué Stocke</p>
+      <h2 class="section__title">Menos tiempo anotando, más tiempo atendiendo.</h2>
+    </div>
+
+    <div class="beneficios__grid">
+      <div class="beneficio reveal">
+        <span class="beneficio__num">+35%</span>
+        <p>de tiempo libre por semana, sin pasar horas anotando en el cuaderno.</p>
+      </div>
+      <div class="beneficio reveal" data-reveal-delay="100">
+        <span class="beneficio__num">0</span>
+        <p>fiados perdidos. Cada deuda queda registrada y nunca se borra.</p>
+      </div>
+      <div class="beneficio reveal" data-reveal-delay="200">
+        <span class="beneficio__num">100%</span>
+        <p>de tu stock visible, desde cualquier lugar y en cualquier momento.</p>
+      </div>
+      <div class="beneficio reveal" data-reveal-delay="300">
+        <span class="beneficio__num">-50%</span>
+        <p>menos productos vencidos gracias a las alertas automáticas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section class="section como-funciona" id="como-funciona">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Cómo funciona</p>
+      <h2 class="section__title">De cero a vendiendo en tres pasos.</h2>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step__marker">01</div>
+        <h3>Cargá tu negocio</h3>
+        <p>Sumá tus productos a mano o escaneando los códigos de barras que ya tenés.</p>
+      </li>
+      <li class="step reveal" data-reveal-delay="100">
+        <div class="step__marker">02</div>
+        <h3>Empezá a vender</h3>
+        <p>Registrá ventas, fiados y movimientos de stock directo desde el mostrador.</p>
+      </li>
+      <li class="step reveal" data-reveal-delay="200">
+        <div class="step__marker">03</div>
+        <h3>Controlá todo al toque</h3>
+        <p>Mirá alertas, reportes y el estado del negocio desde el celu o la compu, cuando quieras.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== CAPTURAS ===== -->
+<section class="section capturas" id="capturas">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Así se ve</p>
+      <h2 class="section__title">El sistema que vas a usar todos los días.</h2>
+    </div>
+
+    <div class="capturas__grid">
+      <div class="capturas__main reveal">
+        <img src="assets/dashboard.png" alt="Captura del panel principal de Stocke al Toque en computadora" loading="lazy">
+      </div>
+      <div class="capturas__side reveal" data-reveal-delay="150">
+        <img src="assets/mobile.png" alt="Captura de Stocke al Toque funcionando en un celular" loading="lazy">
+        <p>Misma información, en la palma de tu mano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIOS ===== -->
+<section class="section testimonios" id="testimonios">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Comercios reales</p>
+      <h2 class="section__title">Lo que dicen los que ya dejaron el cuaderno.</h2>
+    </div>
+
+    <div class="testimonios__grid">
+      <article class="testimonio reveal">
+        <p class="testimonio__text">"Antes perdía como veinte mil pesos por mes en fiados que ni me acordaba. Ahora está todo anotado y al día."</p>
+        <div class="testimonio__autor">
+          <div class="testimonio__avatar">MR</div>
+          <div>
+            <strong>Marta R.</strong>
+            <span>Almacén Don Beto, Mendoza</span>
+          </div>
+        </div>
+      </article>
+      <article class="testimonio reveal" data-reveal-delay="100">
+        <p class="testimonio__text">"El kiosco lo manejamos entre mi hijo y yo desde nuestros celus. Sabemos al instante qué falta pedir."</p>
+        <div class="testimonio__autor">
+          <div class="testimonio__avatar">JL</div>
+          <div>
+            <strong>Jorge L.</strong>
+            <span>Kiosco La Esquina, Córdoba</span>
+          </div>
+        </div>
+      </article>
+      <article class="testimonio reveal" data-reveal-delay="200">
+        <p class="testimonio__text">"En la verdulería los vencimientos eran un dolor de cabeza. Con las alertas dejé de tirar mercadería."</p>
+        <div class="testimonio__autor">
+          <div class="testimonio__avatar">SC</div>
+          <div>
+            <strong>Susana C.</strong>
+            <span>Verdulería El Sol, Rosario</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANES ===== -->
+<section class="section planes" id="planes">
+  <div class="container">
+    <div class="section__head reveal">
+      <p class="eyebrow">Planes</p>
+      <h2 class="section__title">Pensados para el bolsillo de un comercio de barrio.</h2>
+    </div>
+
+    <div class="planes__grid">
+      <article class="plan reveal">
+        <h3 class="plan__name">Kiosco</h3>
+        <p class="plan__desc">Para empezar a ordenar tu negocio.</p>
+        <p class="plan__price">Gratis</p>
+        <ul class="plan__list">
+          <li>Hasta 100 productos</li>
+          <li>Control de stock básico</li>
+          <li>1 usuario</li>
+          <li>Acceso desde celular</li>
+        </ul>
+        <a href="#cta-final" class="btn btn--ghost btn--block">Empezar gratis</a>
+      </article>
+
+      <article class="plan plan--featured reveal" data-reveal-delay="100">
+        <span class="plan__tag">El más elegido</span>
+        <h3 class="plan__name">Almacén</h3>
+        <p class="plan__desc">Para comercios que ya venden todos los días.</p>
+        <p class="plan__price">$9.990<span>/mes</span></p>
+        <ul class="plan__list">
+          <li>Productos ilimitados</li>
+          <li>Fiados y cuentas corrientes</li>
+          <li>Lotes y vencimientos</li>
+          <li>Hasta 3 usuarios</li>
+          <li>Respaldos automáticos</li>
+        </ul>
+        <a href="#cta-final" class="btn btn--primary btn--block">Probar 14 días gratis</a>
+      </article>
+
+      <article class="plan reveal" data-reveal-delay="200">
+        <h3 class="plan__name">Mayorista</h3>
+        <p class="plan__desc">Para negocios con varias sucursales o depósito.</p>
+        <p class="plan__price">$18.990<span>/mes</span></p>
+        <ul class="plan__list">
+          <li>Todo lo del plan Almacén</li>
+          <li>Gestión de proveedores y pedidos</li>
+          <li>Usuarios ilimitados</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="#cta-final" class="btn btn--ghost btn--block">Hablar con ventas</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="preguntas">
+  <div class="container faq__wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 class="section__title">Lo que más nos preguntan.</h2>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion__item reveal">
+        <button class="accordion__trigger" aria-expanded="false">
+          ¿Necesito instalar algo en mi negocio?
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>No. Stocke al Toque funciona desde el navegador de tu celular o computadora. No hace falta instalar programas ni comprar equipos especiales.</p>
+        </div>
+      </div>
+      <div class="accordion__item reveal">
+        <button class="accordion__trigger" aria-expanded="false">
+          ¿Sirve si no tengo lector de código de barras?
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Sí. Podés escanear con la cámara del celular o cargar los productos a mano. El lector físico es opcional, no obligatorio.</p>
+        </div>
+      </div>
+      <div class="accordion__item reveal">
+        <button class="accordion__trigger" aria-expanded="false">
+          ¿Qué pasa si se me rompe o pierde el celular?
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Tranquilo. Toda la información se guarda con respaldos automáticos en la nube. Entrás desde otro dispositivo y seguís donde dejaste.</p>
+        </div>
+      </div>
+      <div class="accordion__item reveal">
+        <button class="accordion__trigger" aria-expanded="false">
+          ¿Puedo usarlo entre varias personas del negocio?
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>Sí, los planes pagos permiten varios usuarios con su propio acceso, ideal para trabajar en familia o con empleados.</p>
+        </div>
+      </div>
+      <div class="accordion__item reveal">
+        <button class="accordion__trigger" aria-expanded="false">
+          ¿Tengo que firmar algún contrato o permanencia?
+          <span class="accordion__icon">+</span>
+        </button>
+        <div class="accordion__panel">
+          <p>No. Es un servicio mensual sin permanencia mínima. Cancelás cuando quieras desde tu cuenta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final" id="cta-final">
+  <div class="container cta-final__inner reveal">
+    <p class="eyebrow eyebrow--light">Dale, animate</p>
+    <h2 class="cta-final__title">Hoy es un buen día para dejar el cuaderno.</h2>
+    <p class="cta-final__subtitle">Sumate a los comercios que ya gestionan su negocio al toque, desde el celu o la compu.</p>
+    <div class="hero__actions cta-final__actions">
+      <a href="#" class="btn btn--primary btn--lg">Crear mi cuenta gratis</a>
+      <a href="https://wa.me/5491100000000" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a href="#inicio" class="navbar__brand">
+        <img src="assets/logo.png" alt="Stocke al Toque" class="navbar__logo">
+        <span class="navbar__name">Stocke <em>al Toque</em></span>
+      </a>
+      <p>El sistema de gestión para almacenes, kioscos, verdulerías y dietéticas argentinas.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Producto</h4>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#planes">Planes</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#preguntas">Preguntas frecuentes</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Empresa</h4>
+      <a href="#">Sobre nosotros</a>
+      <a href="#">Términos y condiciones</a>
+      <a href="#">Privacidad</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contacto</h4>
+      <a href="mailto:hola@stockealtoque.com">hola@stockealtoque.com</a>
+      <a href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span class="barcode barcode--footer" aria-hidden="true"></span>
+    <p>© 2026 Stocke al Toque. Hecho con orgullo para el comercio argentino.</p>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<a href="https://wa.me/5491100000000" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Hablar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.51 3.58 1.4 5.07L2 22l5.18-1.46a9.86 9.86 0 0 0 4.86 1.27h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.79 14.1c-.24.68-1.4 1.32-1.93 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09.99-2.38c.25-.28.55-.35.74-.35h.53c.17 0 .4-.06.62.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.45.51-.15.14-.3.3-.13.59.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.14.46.12.63-.07.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.14.26.1 1.63.77 1.91.91.28.14.46.21.53.33.08.12.08.68-.16 1.36z"/>
+  </svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* Animated counters */
-  const counters = document.querySelectorAll('.counter');
+  const counters = document.querySelectorAll('.js-counter');
 
   const animateCounter = (el) => {
     const target = Number(el.getAttribute('data-target')) || 0;
